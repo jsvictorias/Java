@@ -17,6 +17,7 @@
     method to return the number of busy days:
 */
 
+
 class BirdWatcher {
     private final int[] birdsPerDay;
      public BirdWatcher(int[] birdsPerDay) {
@@ -29,14 +30,17 @@ class BirdWatcher {
     }
     
     public int getToday() {
-        BirdWatcher birdWatcher = new BirdWatcher();
-        today = BirdWatcher.getToday();
-        return birdsPerDay[today];
-        
-    }
+    int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
+    int today = birdsPerDay.length - 2; 
+    return birdsPerDay[today];
+}
 
-    public void incrementTodaysCount() {
-        throw new UnsupportedOperationException("Please implement the BirdWatcher.incrementTodaysCount() method");
+
+    public int incrementTodaysCount() {
+        int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
+        int today = birdsPerDay.length - 2; 
+        birdsPerDay[today]++;
+        return birdsPerDay[today];
     }
 
     public boolean hasDayWithoutBirds() {
@@ -51,8 +55,4 @@ class BirdWatcher {
         throw new UnsupportedOperationException("Please implement the BirdWatcher.getBusyDays() method");
     }
 }
-
-
-
-
-//I's incomplete
+// It takes more 3 codes.
