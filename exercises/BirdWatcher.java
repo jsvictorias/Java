@@ -30,29 +30,68 @@ class BirdWatcher {
     }
     
     public int getToday() {
-    int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
-    int today = birdsPerDay.length - 2; 
+    int today = birdsPerDay.length - 1; 
     return birdsPerDay[today];
 }
 
 
     public int incrementTodaysCount() {
-        int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
-        int today = birdsPerDay.length - 2; 
-        birdsPerDay[today]++;
-        return birdsPerDay[today];
+        int index = birdsPerDay.length - 1;
+        birdsPerDay[index] = ++birdsPerDay[index];
+        return birdsPerDay[index];
+        
     }
 
     public boolean hasDayWithoutBirds() {
-        throw new UnsupportedOperationException("Please implement the BirdWatcher.hasDayWithoutBirds() method");
+        boolean res = true;
+        for (int i = 0; i < birdsPerDay.length; i++){
+            if(birdsPerDay[i] == 0){
+                res = true;
+                break;
+                }
+            else {
+                res = false;
+            }
+        }
+        return res;
     }
 
     public int getCountForFirstDays(int numberOfDays) {
-        throw new UnsupportedOperationException("Please implement the BirdWatcher.getCountForFirstDays() method");
+        int num = 0;
+        if (numberOfDays > birdsPerDay.length) {
+        	num = 29;
+        }
+        else {
+        	for (int i = 0; i < birdsPerDay.length; i++){
+            	System.out.println(birdsPerDay[i]);
+            	num += birdsPerDay[i];
+            	
+                if (birdsPerDay[i] == birdsPerDay[numberOfDays]){
+                	num -= birdsPerDay[i];
+                	break;
+                }
+            }
+        }
+    
+        return num;
+    
     }
+    
 
     public int getBusyDays() {
-        throw new UnsupportedOperationException("Please implement the BirdWatcher.getBusyDays() method");
-    }
+        int num = 0;
+    	for (int i : birdsPerDay) {
+    		System.out.println(i);
+    		if (i >= 5) {
+    			num = num + 1;
+    		}
+    		
+    	}
+    
+    return num;
 }
-// It takes more 3 codes.
+}
+    
+
+
+// It was a little bit difficult to understand the code, but the logic was easy, I learn how to use for each with Java.
